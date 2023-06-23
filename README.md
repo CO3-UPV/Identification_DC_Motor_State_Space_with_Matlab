@@ -32,3 +32,20 @@ El circuito es sencillo tenemos un driver para controlar el motor, en este caso,
 
 - Adafruit Motor Shield V2 - https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/overview
 - Gravity: I2C Digital Wattmeter de DFRobot - https://wiki.dfrobot.com/Gravity:%20I2C%20Digital%20Wattmeter%20SKU:%20SEN0291
+
+
+## Código Arduino
+
+Para la identificación debemos realizar una serie de experimentos con Arduino, aplicando una entrada al motor y ver su respuesta. Como todos los motores no son iguales, y disponemos de cuatro motores, realizaremos el mismo experimento a los cuatros motores para ver si hay diferencias y como afecta esto al modelo.
+
+Para poder leer la lectura en velocidad necesito descodificar los pulsos de cuadratura que me proporciona el encoder en velocidad angular, para ello, emplearemos una librería que se encarga de darnos el número de pulsos (counts), con este valor y sabiendo el numero de Cuentas Por Revolución (Counts Per Revolution - CPR) dado por el fabricante, podremos saber la velocidad haciendo una regla de tres.
+
+- Encoder Library - https://github.com/PaulStoffregen/Encoder
+
+Para el vatímetro y el driver el fabricante nos proporciona liberías para poder leer los sensores.
+
+- Gravity I2C digital power meter - https://github.com/DFRobot/DFRobot_INA219
+- Adafruit Motor Shield V2 Library - https://github.com/adafruit/Adafruit_Motor_Shield_V2_Library
+
+Todas ellas se pueden instalar desde el gestor de librerias de Arduino.
+
