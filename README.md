@@ -58,7 +58,23 @@ Se han preparado dos tipos de experimento, una serie de escalos que van desde un
 Para la identificación del sistema, tenemos el siguiente script, Identitification_and_validation_model.mlx, que a partir de los datos obtenidos de los experimentos es capaz de identificar un modelo en espacio de estados. El estado es x=[vel_angular_rads, intensidad_A]
 
 Los parametros a identificar son los siguientes:
-A = [-M1 M2; -M3 -M4]
+
+``
+A = [-M1 M2; -M3 -M4];
 B = [0; M5];
+``
 
 Esta estructura de las matrices A y B con estos parámetros se deduce de los modelos que puedas encontrar en la bibliografía o en la red. Esta estructura sirve tanto para motor con reductora como sin reductora, ya que abstrae los parámetros como  la inercia, la fricción viscosa, la resistencia de armadura, la inductancia, y la constante eléctrica, propios de un motor de corriente continua, o además, de los parametros para motor con reductora como la relación de los engranajes, la eficiencia de la reductora, posibles fricciones, etcétera.
+
+En la identificación, tendrás N modelos identificados dependiendo del punto del funcionamiento. Algo parecido a lo observado en estas gráficas, la primera hace referencia a la relación voltaje-velocidad_angular y la segunda al voltaje-intensidad.
+
+<p align="center">
+<img src='analysis/models_identified.png' width='400'>
+</p>
+
+Por último, tenemos la simulación de estos N modelos con una entrada de datos reales y la salida en rojo de los datos reales con los datos en negro simulados de los N modelos, y podemos concluir, que son modelos validos.
+
+<p align="center">
+<img src='analysis/chirp_ident.png' width='400'>
+</p>
+
