@@ -55,10 +55,10 @@ Se han preparado dos tipos de experimento, una serie de escalos que van desde un
 
 ## Análisis con Matlab
 
-Para la identificación del sistema, tenemos el siguiente script, Identitification_and_validation_model, que a partir de los datos obtenidos de los experimentos es capaz de identificar un modelo en espacio de estados.
+Para la identificación del sistema, tenemos el siguiente script, Identitification_and_validation_model.mlx, que a partir de los datos obtenidos de los experimentos es capaz de identificar un modelo en espacio de estados. El estado es x=[vel_angular_rads, intensidad_A]
+
 Los parametros a identificar son los siguientes:
 A = [-M1 M2; -M3 -M4]
 B = [0; M5];
-Esta estructura de las matrices A y B con estos parámetros se deduce de los modelos que puedas encontrar en la bibliografía o en la red. Esta estructura sirve tanto para motor con reductora como sin reductora, ya que abstrae los parámetros como 
-la inercia, la fricción viscosa, la resistencia de armadura, la inductancia, y la constante eléctrica, propios de un motor de corriente continua, o además, de los parametros para motor con reductora como la relación de los engranajes, la eficiencia de la reductora, posibles fricciones, etcétera.
 
+Esta estructura de las matrices A y B con estos parámetros se deduce de los modelos que puedas encontrar en la bibliografía o en la red. Esta estructura sirve tanto para motor con reductora como sin reductora, ya que abstrae los parámetros como  la inercia, la fricción viscosa, la resistencia de armadura, la inductancia, y la constante eléctrica, propios de un motor de corriente continua, o además, de los parametros para motor con reductora como la relación de los engranajes, la eficiencia de la reductora, posibles fricciones, etcétera.
