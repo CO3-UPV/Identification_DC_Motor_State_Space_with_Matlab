@@ -32,6 +32,7 @@ int counter = 0; // 40 veces por input
 int max_counter = 40; // 40 veces por input
 int counter_steps = 0;
 int max_counter_steps = 88;
+int finish = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -66,7 +67,7 @@ void setup() {
   counts_act = encoder.read();
   timestamp = millis() + period_ms;
 
-  Serial.println("timestamp,U,max_voltage_V,current_mA,pos_rad,vel_rads");
+  Serial.println("timestamp_ms,U,max_voltage_V,pos_rad,vel_rads,current_mA");
 }
 
 void loop() {
@@ -80,6 +81,8 @@ void loop() {
     counter = 0;
     if(counter_steps == max_counter_steps) {
       U_int = 0;
+      if(finish == 1) while(1);
+      finish = 1;
     } else  counter_steps++;
   }
   counter++;
@@ -106,10 +109,10 @@ void loop() {
   Serial.print(",");
   Serial.print(input_voltage);
   Serial.print(",");
-  Serial.print(wattmetter.getCurrent_mA());
-  Serial.print(",");
   Serial.print(pos_rad);
   Serial.print(",");
   Serial.print(speed_rads);
+  Serial.print(",");
+  Serial.print(wattmetter.getCurrent_mA());
   Serial.println();
 }

@@ -49,3 +49,16 @@ Para el vatímetro y el driver el fabricante nos proporciona liberías para pode
 
 Todas ellas se pueden instalar desde el gestor de librerias de Arduino.
 
+Hay una característica observada de la medida del sensor del vatímetro, este sensor no permite la medición de corriente negativa o de vuelta ya sea porque el driver no  permite la no permite que regrese corriente o el sensor no es capaz de medirla en la otra dirección, es por ello que los resultados se aconseja realizarlos con los valores positivos de las entradas, por ejemplo, aplicando voltajes solo en una dirección para el giro del motor con respuesta positiva o en respuesta a este escalón solo en la respuesta de subida. 
+
+Se han preparado dos tipos de experimento, una serie de escalos que van desde una ganancia pequeña hasta una ganancia máxima y una señal chirp. Conectar el arduino cargar el código, abrir el puerto serie y esperar a que se realice el experimento. Terminará cuando deje de salir texto por el puerto serie, copiar el texto a un archivo de texto y cambiar la extensión a .csv.
+
+## Análisis con Matlab
+
+Para la identificación del sistema, tenemos el siguiente script, Identitification_and_validation_model, que a partir de los datos obtenidos de los experimentos es capaz de identificar un modelo en espacio de estados.
+Los parametros a identificar son los siguientes:
+A = [-M1 M2; -M3 -M4]
+B = [0; M5];
+Esta estructura de las matrices A y B con estos parámetros se deduce de los modelos que puedas encontrar en la bibliografía o en la red. Esta estructura sirve tanto para motor con reductora como sin reductora, ya que abstrae los parámetros como 
+la inercia, la fricción viscosa, la resistencia de armadura, la inductancia, y la constante eléctrica, propios de un motor de corriente continua, o además, de los parametros para motor con reductora como la relación de los engranajes, la eficiencia de la reductora, posibles fricciones, etcétera.
+
