@@ -1,4 +1,4 @@
-# Identification of a DC Motor in State Space with Simulink
+# Identification of a DC Motor in State Space with Matlab
 
 ## Componentes previos
 
